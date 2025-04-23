@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    container_name: go-hexagonal-cms-api
+    environment:
+      - APP_NAME=Hexagonal
+      - DB_NAME_MONGODB=go-hexagonal-cms-test
+      # - MONGODB_URL=mongodb://localhost:27017
+      - MONGODB_URL=mongodb://host.docker.internal:27017
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./static:/app/static
